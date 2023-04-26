@@ -18,7 +18,15 @@ The totalSupply function returns the total supply of tokens. The balanceOf funct
 
 This is only part of the ERC20 implementation, as there are other functions defined in the IERC20 interface that are not implemented here. Additionally, this contract does not have any functions for transferring tokens or approving token transfers, so it cannot be used to transfer tokens. It serves as a basic template for implementing the ERC20 standard in a Solidity smart contract.
 
+ the _transfer function of the ERC20 token contract. It is an internal function that moves tokens from one address to another. The function first checks that neither the from nor the to address are the zero address, as this is an invalid address.
 
+The _beforeTokenTransfer and _afterTokenTransfer are hooks that are intended to be overridden in child contracts to add custom logic before and after the transfer.
+
+Then, the function checks that the from address has sufficient balance to transfer the specified amount, and if so, subtracts the amount from their balance and adds it to the balance of the to address. The function then emits a Transfer event to signal the successful transfer.
+
+The unchecked keyword is used here to indicate that underflow is not possible, as the balance of from is guaranteed to be greater than or equal to the transfer amount. Finally, _afterTokenTransfer hook is called to allow for additional custom logic.
+
+This is the end of the ERC20 contract code. The contract implements the IERC20 interface and provides basic functions to interact with an ERC20 token. It defines mappings to keep track of token balances and allowances, as well as the total supply of the token. The contract includes functions to transfer tokens, approve token transfers, and transfer tokens from one address to another. Additionally, the contract has functions to mint and burn tokens, which can be used to increase or decrease the token supply. The contract includes internal functions to handle token transfers, allowances, and token events. Finally, there are two empty functions, _beforeTokenTransfer and _afterTokenTransfer, which can be used to execute custom code before and after a token transfer.
 
 
 
