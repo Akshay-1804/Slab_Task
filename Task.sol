@@ -47,10 +47,14 @@ contract SlabContract {
     }
 
     function getDepositSlab(address senderAddress, uint256 amount) public view returns (uint256) {
-        uint256 slabIndex = 4;
-        while (slabIndex > 0 && slabs[slabIndex].count + amount > slabs[slabIndex].capacity) {
-            slabIndex--;  
-        }
-        return slabIndex;
+    uint256 totalCapacity = slabs[0].capacity + slabs[1].capacity + slabs[2].capacity + slabs[3].capacity + slabs[4].capacity;
+    require(amount <= totalCapacity, "Amount exceeds total capacity of all slabs");
+
+    uint256 slabIndex = 4;
+    while (slabIndex > 0 && slabs[slabIndex].count + amount > slabs[slabIndex].capacity) {
+        slabIndex--;  
     }
+    return slabIndex;
+}
+
 }
