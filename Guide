@@ -28,6 +28,24 @@ The unchecked keyword is used here to indicate that underflow is not possible, a
 
 This is the end of the ERC20 contract code. The contract implements the IERC20 interface and provides basic functions to interact with an ERC20 token. It defines mappings to keep track of token balances and allowances, as well as the total supply of the token. The contract includes functions to transfer tokens, approve token transfers, and transfer tokens from one address to another. Additionally, the contract has functions to mint and burn tokens, which can be used to increase or decrease the token supply. The contract includes internal functions to handle token transfers, allowances, and token events. Finally, there are two empty functions, _beforeTokenTransfer and _afterTokenTransfer, which can be used to execute custom code before and after a token transfer.
 
+*Task.sol*
+This is a smart contract called "SlabContract" that provides a mechanism for depositing ERC20 tokens into different "slabs". The slabs are defined in a struct and stored in a mapping called "slabs". Each slab has a "capacity" and a "count" variable. The idea is to ensure that deposited tokens are spread out across different slabs to prevent a single slab from becoming too full.
+
+The "deposit" function allows users to deposit ERC20 tokens into the contract. It first calls the "approve" function on the ERC20 token contract to give the SlabContract allowance to spend the specified amount of tokens on behalf of the user. Then it checks that the allowance is sufficient before transferring the tokens to the contract. It then determines which slab the tokens should be added to by calling the "getDepositSlab" function, which uses a loop to find the first slab with sufficient capacity to hold the tokens. Finally, it calls the "addCountToSlab" function to add the deposited tokens to the appropriate slab.
+
+The "getDepositSlab" function is a helper function that takes in the sender's address and the amount of tokens to be deposited, and returns the index of the first slab that has sufficient capacity to hold the tokens. The function works by looping through the slabs starting from the highest capacity slab, and returns the index of the first slab that can hold the tokens.
+
+Overall, the SlabContract provides a simple way for users to deposit ERC20 tokens into different slabs, which helps to distribute the tokens and prevent any single slab from becoming too full.
+
+
+
+
+
+
+
+
+
+
 
 
 
