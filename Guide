@@ -10,3 +10,16 @@ The "allowance" function takes an owner address and a spender address as argumen
 The "approve" function takes a spender address and an amount as arguments and allows the spender to spend up to the specified amount of tokens on behalf of the caller.
 The "transferFrom" function takes a sender address, a destination address, and an amount as arguments and transfers the specified amount of tokens from the sender's account to the destination address. The function can only be called by a spender who has been approved by the owner of the tokens to spend on their behalf.
 The "Transfer" and "Approval" events are triggered when a transfer or approval occurs, respectively. These events can be used to track and audit token transfers and approvals on the blockchain.
+
+*ERC20.sol*
+This is a Solidity smart contract that implements the ERC20 token standard. The contract implements the IERC20 interface, which defines a set of functions and events that the contract must implement to be considered an ERC20 token. The contract has a mapping called _balances that maps addresses to token balances, and another mapping called _allowances that maps addresses to the amount of tokens that a spender is allowed to spend on behalf of an owner. The contract also has a private variable called _totalSupply that represents the total supply of tokens. The constructor sets the total supply to 2100000 and assigns all of the tokens to the contract deployer's address.
+
+The totalSupply function returns the total supply of tokens. The balanceOf function takes an address as an argument and returns the balance of tokens for that address. These functions are part of the ERC20 standard.
+
+This is only part of the ERC20 implementation, as there are other functions defined in the IERC20 interface that are not implemented here. Additionally, this contract does not have any functions for transferring tokens or approving token transfers, so it cannot be used to transfer tokens. It serves as a basic template for implementing the ERC20 standard in a Solidity smart contract.
+
+
+
+
+
+
