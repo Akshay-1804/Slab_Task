@@ -1,0 +1,12 @@
+Firstly as we have to transfer ERC20 token we have created simple ERC20 smart contract.
+
+*IERC20.sol*
+This is a interface file for defining events, functions er are going to use in ERC20 smart contract.
+It contain onlt declaration of functions and not implementations.
+The "totalSupply" function returns the total supply of tokens.
+The "balanceOf" function takes an address as an argument and returns the balance of tokens that address holds.
+The "transfer" function takes a destination address and an amount as arguments and transfers that amount of tokens from the sender's account to the destination address. It returns a boolean value indicating whether the transfer was successful.
+The "allowance" function takes an owner address and a spender address as arguments and returns the amount of tokens the spender is allowed to spend on behalf of the owner.
+The "approve" function takes a spender address and an amount as arguments and allows the spender to spend up to the specified amount of tokens on behalf of the caller.
+The "transferFrom" function takes a sender address, a destination address, and an amount as arguments and transfers the specified amount of tokens from the sender's account to the destination address. The function can only be called by a spender who has been approved by the owner of the tokens to spend on their behalf.
+The "Transfer" and "Approval" events are triggered when a transfer or approval occurs, respectively. These events can be used to track and audit token transfers and approvals on the blockchain.
